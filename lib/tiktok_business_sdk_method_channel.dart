@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -22,6 +24,7 @@ class MethodChannelTiktokBusinessSdk extends TiktokBusinessSdkPlatform {
     required String ttAppId,
     bool openDebug = false,
     bool enableAutoIapTrack = true,
+    bool disableAutoEnhancedDataPostbackEvents = false,
   }) async {
     await methodChannel.invokeMethod<void>(
       'initTiktokBusinessSdk',
@@ -31,6 +34,7 @@ class MethodChannelTiktokBusinessSdk extends TiktokBusinessSdkPlatform {
         'ttAppId': ttAppId,
         'openDebug': openDebug,
         'enableAutoIapTrack': enableAutoIapTrack,
+        'disableAutoEnhancedDataPostbackEvents': disableAutoEnhancedDataPostbackEvents,
       },
     );
   }
@@ -63,7 +67,7 @@ class MethodChannelTiktokBusinessSdk extends TiktokBusinessSdkPlatform {
     await methodChannel.invokeMethod<void>(
       'trackTTEvent',
       {
-        'eventName': event.value,
+        'eventName': Platform.isIOS ? event.name : event.value,
         'eventId': eventId,
       },
     );

@@ -28,13 +28,13 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPlatformState();
-    _tiktokBusinessSdkPlugin.initTiktokBusinessSdk(
-      accessToken: dotenv.env['accessToken'] ?? '',
-      appId: dotenv.env['appId'] ?? '',
-      ttAppId: dotenv.env['ttAppId'] ?? '',
-      openDebug: false,
-      enableAutoIapTrack: true,
-    );
+    // _tiktokBusinessSdkPlugin.initTiktokBusinessSdk(
+    //   accessToken: dotenv.env['accessToken'] ?? '',
+    //   appId: dotenv.env['appId'] ?? '',
+    //   ttAppId: dotenv.env['ttAppId'] ?? '',
+    //   openDebug: true,
+    //   enableAutoIapTrack: true,
+    // );
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -65,38 +65,56 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Plugin example app')),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                _tiktokBusinessSdkPlugin.setIdentify(
-                  externalId: '1234567890',
-                  externalUserName: 'John Doe',
-                  phoneNumber: '1234567890',
-                  email: 'john.doe@example.com',
-                );
-              },
-              child: Text('Set Identify'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                _tiktokBusinessSdkPlugin.logout();
-              },
-              child: Text('Logout'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                _tiktokBusinessSdkPlugin.trackTTEvent(
-                  event: EventName.achieveLevel,
-                );
-              },
-              child: Text('Track TT Event'),
-            ),
-            Text('Platform Version: $_platformVersion'),
-          ],
+        body: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.red),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  _tiktokBusinessSdkPlugin.initTiktokBusinessSdk(
+                    accessToken: dotenv.env['accessToken'] ?? '',
+                    appId: dotenv.env['appId'] ?? '',
+                    ttAppId: dotenv.env['ttAppId'] ?? '',
+                    openDebug: true,
+                    enableAutoIapTrack: true,
+                  );
+                },
+                child: Text('Init Tiktok Business SDK'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _tiktokBusinessSdkPlugin.setIdentify(
+                    externalId: '1234567890',
+                    externalUserName: 'John Doe',
+                    phoneNumber: '1234567890',
+                    email: 'john.doe@example.com',
+                  );
+                },
+                child: Text('Set Identify'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _tiktokBusinessSdkPlugin.logout();
+                },
+                child: Text('Logout'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _tiktokBusinessSdkPlugin.trackTTEvent(
+                    event: EventName.AchieveLevel,
+                  );
+                },
+                child: Text('Track TT Event'),
+              ),
+              Text('Platform Version: $_platformVersion'),
+            ],
+          ),
         ),
       ),
     );

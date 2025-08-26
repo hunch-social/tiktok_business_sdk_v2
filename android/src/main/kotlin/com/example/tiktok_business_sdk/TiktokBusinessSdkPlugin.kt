@@ -53,7 +53,7 @@ class TiktokBusinessSdkPlugin :
                         setTTAppId(ttAppId)
                         if (openDebug == true) openDebugMode()
                         if (enableAutoIapTrack == true) enableAutoIapTrack()
-                        if (disableAutoEnhancedDataPostbackEvent == true) disableAutoEnhancedDataPostbackEvent
+                        if (disableAutoEnhancedDataPostbackEvent == true) disableAutoEnhancedDataPostbackEvent()
                     }
                     TikTokBusinessSdk.initializeSdk(
                         ttConfig,

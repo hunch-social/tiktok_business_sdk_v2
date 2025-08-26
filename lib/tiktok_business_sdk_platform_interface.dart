@@ -27,12 +27,16 @@ abstract class TiktokBusinessSdkPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
+  /// [disableAutoEnhancedDataPostbackEvents] 
+  /// 在您的 SDK 配置中添加此设置，以在所有设备上全局禁用该功能。
+  /// 当您希望完全关闭此功能而不考虑设备类型或运行条件时使用此选项。
   Future<void> initTiktokBusinessSdk({
     required String accessToken,
     required String appId,
     required String ttAppId,
     bool openDebug = false,
     bool enableAutoIapTrack = true,
+    bool disableAutoEnhancedDataPostbackEvents = false,
   }) {
     throw UnimplementedError('init() has not been implemented.');
   }
@@ -56,29 +60,29 @@ abstract class TiktokBusinessSdkPlatform extends PlatformInterface {
 }
 
 enum EventName {
-  achieveLevel('ACHIEVE_LEVEL'),
-  addPaymentInfo('ADD_PAYMENT_INFO'),
-  completeTutorial('COMPLETE_TUTORIAL'),
-  createGroup('CREATE_GROUP'),
-  createRole('CREATE_ROLE'),
-  generateLead('GENERATE_LEAD'),
-  inAppAdClick('IN_APP_AD_CLICK'),
-  inAppAdImpr('IN_APP_AD_IMPR'),
-  installApp('INSTALL_APP'),
-  joinGroup('JOIN_GROUP'),
-  launchApp('LAUNCH_APP'),
-  loanApplication('LOAN_APPLICATION'),
-  loanApproval('LOAN_APPROVAL'),
-  loanDisbursal('LOAN_DISBURSAL'),
-  login('LOGIN'),
-  rate('RATE'),
-  registration('REGISTRATION'),
-  search('SEARCH'),
-  spendCredits('SPEND_CREDITS'),
-  startTrial('START_TRIAL'),
-  subscribe('SUBSCRIBE'),
-  impressionLevelAdRevenue('IMPRESSION_LEVEL_AD_REVENUE'),
-  unlockAchievement('UNLOCK_ACHIEVEMENT');
+  AchieveLevel('ACHIEVE_LEVEL'),
+  AddPaymentInfo('ADD_PAYMENT_INFO'),
+  CompleteTutorial('COMPLETE_TUTORIAL'),
+  CreateGroup('CREATE_GROUP'),
+  CreateRole('CREATE_ROLE'),
+  GenerateLead('GENERATE_LEAD'),
+  InAppAdClick('IN_APP_AD_CLICK'),
+  InAppAdImpr('IN_APP_AD_IMPR'),
+  InstallApp('INSTALL_APP'),
+  JoinGroup('JOIN_GROUP'),
+  LaunchApp('LAUNCH_APP'),
+  LoanApplication('LOAN_APPLICATION'),
+  LoanApproval('LOAN_APPROVAL'),
+  LoanDisbursal('LOAN_DISBURSAL'),
+  Login('LOGIN'),
+  Rate('RATE'),
+  Registration('REGISTRATION'),
+  Search('SEARCH'),
+  SpendCredits('SPEND_CREDITS'),
+  StartTrial('START_TRIAL'),
+  Subscribe('SUBSCRIBE'),
+  ImpressionLevelAdRevenue('IMPRESSION_LEVEL_AD_REVENUE'),
+  UnlockAchievement('UNLOCK_ACHIEVEMENT');
 
   final String value;
   const EventName(this.value);

@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import TikTokBusinessSDK
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -9,5 +10,9 @@ import UIKit
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+
+  override func applicationDidBecomeActive(_ application: UIApplication) {
+    TikTokBusiness.requestTrackingAuthorization()
   }
 }
