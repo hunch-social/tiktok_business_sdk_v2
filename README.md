@@ -39,14 +39,21 @@ flutter pub get
 
 #### Android
 
-Add the following to your `android/app/build.gradle`:
+Add the followint to your `android/settings.gradle`:
 
 ```gradle
-android {
-    defaultConfig {
-        minSdkVersion 21
-    }
+repositories {
+  ...
+  maven { url 'https://jitpack.io' } // add this line!!
 }
+```
+
+Add the following to your `android/app/proguard-rules.pro`:
+
+```
+-keep class com.tiktok.** { *; }
+-keep class com.android.billingclient.api.** { *; }
+-keep class androidx.lifecycle.** { *; }
 ```
 
 Ensure required permissions in `android/app/src/main/AndroidManifest.xml`:
