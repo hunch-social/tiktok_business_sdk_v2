@@ -10,6 +10,26 @@ class MockTiktokBusinessSdkPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+  
+  @override
+  Future<void> initTiktokBusinessSdk({required String accessToken, required String appId, required String ttAppId, bool openDebug = false, bool enableAutoIapTrack = true, bool disableAutoEnhancedDataPostbackEvents = false}) {
+    return Future.value();
+  }
+  
+  @override
+  Future<void> logout() {
+    return Future.value();
+  }
+  
+  @override
+  Future<void> setIdentify({required String externalId, String? externalUserName, String? phoneNumber, String? email}) {
+    return Future.value();
+  }
+  
+  @override
+  Future<void> trackTTEvent({required EventName event, String? eventId}) {
+    return Future.value();
+  }
 }
 
 void main() {

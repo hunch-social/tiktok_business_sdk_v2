@@ -12,6 +12,7 @@ class TiktokBusinessSdk {
     required String ttAppId,
     bool openDebug = false,
     bool enableAutoIapTrack = true,
+    bool disableAutoEnhancedDataPostbackEvents = false,
   }) {
     return TiktokBusinessSdkPlatform.instance.initTiktokBusinessSdk(
       accessToken: accessToken,
@@ -19,6 +20,7 @@ class TiktokBusinessSdk {
       ttAppId: ttAppId,
       openDebug: openDebug,
       enableAutoIapTrack: enableAutoIapTrack,
+      disableAutoEnhancedDataPostbackEvents: disableAutoEnhancedDataPostbackEvents,
     );
   }
 

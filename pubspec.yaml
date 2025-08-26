@@ -1,8 +1,8 @@
 name: tiktok_business_sdk
-description: "A new Flutter plugin project."
+description: "A Flutter plugin that integrates TikTok Business SDK 1.5.0"
 version: 0.0.1
-homepage:
-
+homepage: https://github.com/ganlong-2016/tiktok_business_sdk
+repository: https://github.com/ganlong-2016/tiktok_business_sdk
 environment:
   sdk: ^3.9.0
   flutter: '>=3.3.0'
