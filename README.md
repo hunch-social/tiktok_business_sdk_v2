@@ -39,12 +39,14 @@ flutter pub get
 
 #### Android
 
-Add the followint to your `android/settings.gradle`:
+Add the followint to your `android/build.gradle`:
 
 ```gradle
-repositories {
-  ...
-  maven { url 'https://jitpack.io' } // add this line!!
+allprojects{
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' } // add this line!!
+  }
 }
 ```
 
