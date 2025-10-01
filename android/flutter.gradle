@@ -1,16 +1,16 @@
 import java.nio.file.Paths
 
-//获取local.properties配置文件
+// 获取 local.properties 配置文件
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 
 if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') {
-        reader -> localProperties.load(reader)
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
     }
 }
 
-//获取flutter的sdk路径
+// 获取 Flutter SDK 路径
 def flutterRootPath = localProperties.getProperty('flutter.sdk')
 
 if (flutterRootPath == null) {
@@ -27,30 +27,32 @@ repositories {
     }
 }
 
-File flutterRoot = projectDir.parentFile.parentFile.parentFile
+// You no longer need to compute engineVersion or declare engine dependencies
+// File flutterRoot = projectDir.parentFile.parentFile.parentFile
+// assert flutterRoot.isDirectory()
+// String engineVersion = Paths.get(flutterRootPath, "bin", "internal", "engine.version")
+//         .toFile().text.trim()
 
-assert flutterRoot.isDirectory()
-String engineVersion = Paths.get(flutterRootPath, "bin", "internal", "engine.version")
-        .toFile().text.trim()
+// Remove engine-specific configurations
+// configurations {
+//     flutterRelease.extendsFrom releaseImplementation
+//     flutterDebug.extendsFrom debugImplementation
+//     flutterProfile.extendsFrom debugImplementation
+// }
 
-configurations {
-    flutterRelease.extendsFrom releaseImplementation
-    flutterDebug.extendsFrom debugImplementation
-    flutterProfile.extendsFrom debugImplementation
-}
-
-dependencies {
-    flutterRelease "io.flutter:flutter_embedding_release:1.0.0-$engineVersion"
-    flutterRelease "io.flutter:armeabi_v7a_release:1.0.0-$engineVersion"
-    flutterRelease "io.flutter:arm64_v8a_release:1.0.0-$engineVersion"
-
-    flutterProfile "io.flutter:flutter_embedding_profile:1.0.0-$engineVersion"
-    flutterProfile "io.flutter:armeabi_v7a_profile:1.0.0-$engineVersion"
-    flutterProfile "io.flutter:arm64_v8a_profile:1.0.0-$engineVersion"
-
-    compileOnly "io.flutter:flutter_embedding_debug:1.0.0-$engineVersion"
-    compileOnly "io.flutter:armeabi_v7a_debug:1.0.0-$engineVersion"
-    compileOnly "io.flutter:arm64_v8a_debug:1.0.0-$engineVersion"
-    compileOnly "io.flutter:x86_debug:1.0.0-$engineVersion"
-    compileOnly "io.flutter:x86_64_debug:1.0.0-$engineVersion"
-}
+// Remove compileOnly / flutterRelease / flutterProfile dependencies
+// dependencies {
+//     flutterRelease "io.flutter:flutter_embedding_release:1.0.0-$engineVersion"
+//     flutterRelease "io.flutter:armeabi_v7a_release:1.0.0-$engineVersion"
+//     flutterRelease "io.flutter:arm64_v8a_release:1.0.0-$engineVersion"
+//
+//     flutterProfile "io.flutter:flutter_embedding_profile:1.0.0-$engineVersion"
+//     flutterProfile "io.flutter:armeabi_v7a_profile:1.0.0-$engineVersion"
+//     flutterProfile "io.flutter:arm64_v8a_profile:1.0.0-$engineVersion"
+//
+//     compileOnly "io.flutter:flutter_embedding_debug:1.0.0-$engineVersion"
+//     compileOnly "io.flutter:armeabi_v7a_debug:1.0.0-$engineVersion"
+//     compileOnly "io.flutter:arm64_v8a_debug:1.0.0-$engineVersion"
+//     compileOnly "io.flutter:x86_debug:1.0.0-$engineVersion"
+//     compileOnly "io.flutter:x86_64_debug:1.0.0-$engineVersion"
+// }
