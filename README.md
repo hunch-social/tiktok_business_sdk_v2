@@ -131,7 +131,6 @@ final tiktokSdk = TiktokBusinessSdk();
 
 // Initialize the SDK
 await tiktokSdk.initTiktokBusinessSdk(
-  accessToken: 'your_access_token',
   appId: 'your_app_id',
   ttAppId: 'your_tiktok_app_id',
   openDebug: true, // Enable debug mode
@@ -224,7 +223,6 @@ The plugin provides a comprehensive set of predefined events:
 #### Parameters
 
 ##### initTiktokBusinessSdk
-- `accessToken` (required): Your TikTok Business SDK access token
 - `appId` (required): Your application ID
 - `ttAppId` (required): Your TikTok application ID
 - `openDebug` (optional): Enable debug mode (default: false)
@@ -247,8 +245,7 @@ The plugin provides error handling through Flutter's standard error mechanisms:
 ```dart
 try {
   await tiktokSdk.initTiktokBusinessSdk(
-    accessToken: 'invalid_token',
-    appId: 'app_id',
+    appId: '', // the native side rejects an empty appId or ttAppId
     ttAppId: 'tt_app_id',
   );
 } catch (e) {
