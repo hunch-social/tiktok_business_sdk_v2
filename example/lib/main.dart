@@ -29,7 +29,6 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     initPlatformState();
     // _tiktokBusinessSdkPlugin.initTiktokBusinessSdk(
-    //   accessToken: dotenv.env['accessToken'] ?? '',
     //   appId: dotenv.env['appId'] ?? '',
     //   ttAppId: dotenv.env['ttAppId'] ?? '',
     //   openDebug: true,
@@ -78,7 +77,6 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 onPressed: () {
                   _tiktokBusinessSdkPlugin.initTiktokBusinessSdk(
-                    accessToken: dotenv.env['accessToken'] ?? '',
                     appId: dotenv.env['appId'] ?? '',
                     ttAppId: dotenv.env['ttAppId'] ?? '',
                     openDebug: true,

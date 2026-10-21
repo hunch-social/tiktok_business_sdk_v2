@@ -31,7 +31,6 @@ abstract class TiktokBusinessSdkPlatform extends PlatformInterface {
   /// 在您的 SDK 配置中添加此设置，以在所有设备上全局禁用该功能。
   /// 当您希望完全关闭此功能而不考虑设备类型或运行条件时使用此选项。
   Future<void> initTiktokBusinessSdk({
-    required String accessToken,
     required String appId,
     required String ttAppId,
     bool openDebug = false,
