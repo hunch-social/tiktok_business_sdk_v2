@@ -18,6 +18,10 @@ public class TiktokBusinessSdkPlugin: NSObject, FlutterPlugin {
         result("Invalid arguments")
         return
       }
+      guard let accessToken = args["accessToken"] as? String else {
+        result( "accessToken is required")
+        return
+      }
       guard let appId = args["appId"] as? String else {
         result( "appId is required")
         return
@@ -29,7 +33,7 @@ public class TiktokBusinessSdkPlugin: NSObject, FlutterPlugin {
       let openDebug = args["openDebug"] as? Bool ?? false
       let enableAutoIapTrack = args["enableAutoIapTrack"] as? Bool ?? true
       let disableAutoEnhancedDataPostbackEvents = args["disableAutoEnhancedDataPostbackEvents"] as? Bool ?? false
-      let config = TikTokConfig(appId: appId, tiktokAppId: ttAppId)
+      let config = TikTokConfig(accessToken: accessToken, appId: appId, tiktokAppId: ttAppId)
       if openDebug {
         config?.enableDebugMode()
       }
