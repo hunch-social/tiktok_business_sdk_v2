@@ -19,7 +19,6 @@ class MethodChannelTiktokBusinessSdk extends TiktokBusinessSdkPlatform {
 
   @override
   Future<void> initTiktokBusinessSdk({
-    required String accessToken,
     required String appId,
     required String ttAppId,
     bool openDebug = false,
@@ -29,7 +28,6 @@ class MethodChannelTiktokBusinessSdk extends TiktokBusinessSdkPlatform {
     await methodChannel.invokeMethod<void>(
       'initTiktokBusinessSdk',
       {
-        'accessToken': accessToken,
         'appId': appId,
         'ttAppId': ttAppId,
         'openDebug': openDebug,

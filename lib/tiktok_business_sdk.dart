@@ -7,7 +7,6 @@ class TiktokBusinessSdk {
   }
 
   Future<void> initTiktokBusinessSdk({
-    required String accessToken,
     required String appId,
     required String ttAppId,
     bool openDebug = false,
@@ -15,7 +14,6 @@ class TiktokBusinessSdk {
     bool disableAutoEnhancedDataPostbackEvents = false,
   }) {
     return TiktokBusinessSdkPlatform.instance.initTiktokBusinessSdk(
-      accessToken: accessToken,
       appId: appId,
       ttAppId: ttAppId,
       openDebug: openDebug,

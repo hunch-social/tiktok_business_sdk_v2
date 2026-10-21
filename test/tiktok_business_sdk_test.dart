@@ -12,7 +12,7 @@ class MockTiktokBusinessSdkPlatform
   Future<String?> getPlatformVersion() => Future.value('42');
   
   @override
-  Future<void> initTiktokBusinessSdk({required String accessToken, required String appId, required String ttAppId, bool openDebug = false, bool enableAutoIapTrack = true, bool disableAutoEnhancedDataPostbackEvents = false}) {
+  Future<void> initTiktokBusinessSdk({required String appId, required String ttAppId, bool openDebug = false, bool enableAutoIapTrack = true, bool disableAutoEnhancedDataPostbackEvents = false}) {
     return Future.value();
   }
   
